@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerInfoPanel playerInfoPanel;
+    public HUDPanel PlayerHUD;
 }

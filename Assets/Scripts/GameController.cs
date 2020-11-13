@@ -22,8 +22,5 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         gameData.player.Tank = FindObjectOfType<Tank>();
-
-        ui.playerInfoPanel.UpdateView();
-        gameData.player.OnTankChanged.AddListener(ui.playerInfoPanel.UpdateView);
     }
 }

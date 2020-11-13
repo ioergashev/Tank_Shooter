@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public struct AttackEventArgs
+{
+    public float Damage;
+}
+public class AttackEvent : UnityEvent<AttackEventArgs> { }
+
 public class GameData : MonoBehaviour
 {
     private static GameData instance;

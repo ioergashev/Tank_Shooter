@@ -9,11 +9,11 @@ public class Tank : MonoBehaviour
 
     private float lastFireTime;
     public float WeaponReloadDuration = 0.5f;
-    public GameObject ProjectilePrefab;
+    public Projectile ProjectilePrefab;
 
     public Transform ProjectileOrigin;
 
-    public float Armor = 100;
+    public float Armor = 0.5f;
 
     void Update()
     {
