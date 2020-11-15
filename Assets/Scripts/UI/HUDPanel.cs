@@ -18,7 +18,6 @@ public class HUDPanel : MonoBehaviour
         ResetView();
     }
 
-
     private void Update()
     {
         if (Player != null)
