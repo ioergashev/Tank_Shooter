@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(SpawnDelay);
+            InstntiatedEnemies.RemoveAll(e => e == null);
             if (InstntiatedEnemies.Count < MaxEnemiesCount)
                 Spawn();
         }
@@ -30,12 +31,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-     
-        float randomAngle = Random.Range(0, 360);
+        float randomAngle = Random.Range(0f, 360f);
         Vector3 randomPosition = new Vector3(Mathf.Cos(randomAngle * Mathf.Deg2Rad), Mathf.Sin(randomAngle * Mathf.Deg2Rad));
         randomPosition *= GameSettings.Instance.WorldSize.magnitude / 2;
 
-        int nextItemIndex = InstntiatedEnemies.Count < EnemyPrefabs.Count ? InstntiatedEnemies.Count : 0;
+        int nextItemIndex = InstntiatedEnemies.Count % EnemyPrefabs.Count;
         var enemy = Instantiate(EnemyPrefabs[nextItemIndex], randomPosition, Quaternion.identity);
         InstntiatedEnemies.Add(enemy);
 

@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         OnAttacked.AddListener(AttackedHandeler);
+        OnKilled.AddListener(KilledHandler);
     }
 
     private void AttackedHandeler(AttackEventArgs e)
@@ -45,8 +46,19 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
         {
             Health = 0;
+            Kill();
             OnKilled?.Invoke();
         }
+    }
+
+    private void Kill()
+    {
+        Destroy(gameObject);
+    }
+
+    private void KilledHandler()
+    {
+        GameData.Instance.OnEnemyKilled?.Invoke();
     }
 
     private void Update()

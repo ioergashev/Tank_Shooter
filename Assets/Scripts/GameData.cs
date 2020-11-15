@@ -23,4 +23,5 @@ public class GameData : MonoBehaviour
     }
 
     public Player player;
+    public UnityEvent OnEnemyKilled = new UnityEvent();
 }

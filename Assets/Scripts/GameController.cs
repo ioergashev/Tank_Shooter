@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
     public UIManager ui;
     public GameData gameData;
+    public EnemySpawner enemySpawner;
 
     private void Start()
     {

@@ -23,7 +23,8 @@ public class Tank : MonoBehaviour
         float moveDistance = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         transform.Translate(Vector3.up * moveDistance);
 
-        if(Input.GetKey(KeyCode.X) && Time.time > lastFireTime + WeaponReloadDuration)
+        if((Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.Space))
+            && Time.time > lastFireTime + WeaponReloadDuration)
         {
             lastFireTime = Time.time;
             Fire();
