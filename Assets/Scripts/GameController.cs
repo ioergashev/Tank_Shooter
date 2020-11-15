@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    private static GameController instance;
-    public static GameController Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = FindObjectOfType<GameController>();
-            return instance;
-        }
-    }
-
     public UIManager ui;
     public GameData gameData;
-    public EnemySpawner enemySpawner;
 
     private void Start()
     {
         gameData.player.Tank = FindObjectOfType<Tank>();
+        gameData.player.OnKilled.AddListener(OnPlayerKilled);
+    }
+
+    private void OnPlayerKilled()
+    {
+        ui.GameOverWindow.SetActive(true);
+    }
+
+    public void RestartButtonHandler()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -38,7 +38,13 @@ public class Player : MonoBehaviour
         if (Health <= 0)
         {
             Health = 0;
+            Kill();
             OnKilled?.Invoke();
         }
+    }
+
+    private void Kill()
+    {
+        Tank.enabled = false;
     }
 }

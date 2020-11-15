@@ -5,4 +5,5 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public HUDPanel PlayerHUD;
+    public GameObject GameOverWindow;
 }
